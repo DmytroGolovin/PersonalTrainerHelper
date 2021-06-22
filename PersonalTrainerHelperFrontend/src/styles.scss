@@ -1,1 +1,50 @@
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import "assets/scss/animations.scss";
+@import "assets/scss/variables.scss";
+
 /* You can add global styles to this file, and also import other style files */
+:root {
+    font-size: 16px;
+    font-family: 'Open Sans';
+}
+
+body{
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar{
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track{
+    background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: $ic-color;
+}
+
+.title{
+    color: $main-color;
+}
+
+.button{
+    border: none;
+    border-radius: 40px;
+    padding: 0.8rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.secondary-button{
+    background-color: $ic-color-secondary;
+    color: white;
+}
+
+.main-button{
+    background-color: $ic-color;
+    color: white;
+}

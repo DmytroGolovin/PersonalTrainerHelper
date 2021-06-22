@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PersonalTrainerHelperFrontend"
+    }
+  },
+  "defaultProject": "PersonalTrainerHelperFrontend",
+  "cli": {
+    "analytics": "20654594-229a-4494-b375-bc04f3bbfbe9"
+  }
 }

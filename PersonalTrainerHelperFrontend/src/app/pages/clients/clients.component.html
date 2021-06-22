@@ -1,0 +1,48 @@
+<div class="container py-5">
+    <div class="card-block px-5">
+        <div class="d-flex justify-content-between">
+            <h2 class="title">
+                Clients
+            </h2>
+            <button type="submit" class="button main-button">
+                NEW CLIENT
+            </button>
+        </div>
+    </div>
+    
+    <form class="card-block px-5 mt-5" (ngSubmit)="applyFilters()">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label for="name">Search</label>
+                    <input type="text" name="name" class="form-control" placeholder="Search..." [(ngModel)]="name">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Name" [(ngModel)]="name">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Name" [(ngModel)]="name">
+                </div>  
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-2">
+            <div class="pr-2">
+                <button type="button" class="button secondary-button">
+                    CLEAR
+                </button>
+            </div>
+            <div class="pl-2">
+                <button type="submit" class="button main-button">
+                    SEARCH
+                </button>
+            </div>            
+        </div>
+    </form>
+</div>
