@@ -1,37 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PersonalProjects\\PersonalTrainerApp\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi.csproj": {}
+    "C:\\DevGit\\PersonalTrainerHelper\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi.csproj": {}
   },
   "projects": {
-    "C:\\PersonalProjects\\PersonalTrainerApp\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi.csproj": {
+    "C:\\DevGit\\PersonalTrainerHelper\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PersonalProjects\\PersonalTrainerApp\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi.csproj",
+        "projectUniqueName": "C:\\DevGit\\PersonalTrainerHelper\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi.csproj",
         "projectName": "PersonalTrainerHelperApi",
-        "projectPath": "C:\\PersonalProjects\\PersonalTrainerApp\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi.csproj",
-        "packagesPath": "C:\\Users\\KWAN\\.nuget\\packages\\",
-        "outputPath": "C:\\PersonalProjects\\PersonalTrainerApp\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi\\obj\\",
+        "projectPath": "C:\\DevGit\\PersonalTrainerHelper\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi.csproj",
+        "packagesPath": "C:\\Users\\dmytr\\.nuget\\packages\\",
+        "outputPath": "C:\\DevGit\\PersonalTrainerHelper\\PersonalTrainerHelperApi\\PersonalTrainerHelperApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\KWAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\dmytr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://glinttutilities.westeurope.cloudapp.azure.com:8080/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\DevGit\\PersonalTrainerHelper\\PersonalTrainerHelperApi\\PersonalTrainerHelperData\\PersonalTrainerHelperData.csproj": {
+                "projectPath": "C:\\DevGit\\PersonalTrainerHelper\\PersonalTrainerHelperApi\\PersonalTrainerHelperData\\PersonalTrainerHelperData.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -42,6 +42,23 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "IdentityServer4.EntityFramework.Storage": {
+              "target": "Package",
+              "version": "[4.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -60,7 +77,67 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\DevGit\\PersonalTrainerHelper\\PersonalTrainerHelperApi\\PersonalTrainerHelperData\\PersonalTrainerHelperData.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\DevGit\\PersonalTrainerHelper\\PersonalTrainerHelperApi\\PersonalTrainerHelperData\\PersonalTrainerHelperData.csproj",
+        "projectName": "PersonalTrainerHelperData",
+        "projectPath": "C:\\DevGit\\PersonalTrainerHelper\\PersonalTrainerHelperApi\\PersonalTrainerHelperData\\PersonalTrainerHelperData.csproj",
+        "packagesPath": "C:\\Users\\dmytr\\.nuget\\packages\\",
+        "outputPath": "C:\\DevGit\\PersonalTrainerHelper\\PersonalTrainerHelperApi\\PersonalTrainerHelperData\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dmytr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

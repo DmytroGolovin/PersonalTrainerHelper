@@ -36,5 +36,12 @@ namespace PersonalTrainerHelperApi.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost]
+        public void AddClient([FromBody] dynamic client)
+        {
+            var rng = new Random();
+            var test = client;
+        }
     }
 }

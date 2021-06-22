@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/shared/models/user.model';
+import { ClientService } from 'src/app/shared/services/api-consumers/client.service';
 
 @Component({
   selector: 'app-client-create',
@@ -12,7 +13,8 @@ export class ClientCreateComponent implements OnInit {
   @ViewChild('stepper') stepper: MatStepper;
 
   public user: User = new User();
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal,
+    private _clientService: ClientService) { }
 
   ngOnInit(): void {
   }
@@ -24,8 +26,11 @@ export class ClientCreateComponent implements OnInit {
     this.stepper.next();
   }
 
-  public save(){
+  public save() {
     console.log(this.user);
+    this._clientService.addClient(this.user).subscribe(res => {
+      console.log("Done!");
+    });
     //this.activeModal.close()
   }
 }
