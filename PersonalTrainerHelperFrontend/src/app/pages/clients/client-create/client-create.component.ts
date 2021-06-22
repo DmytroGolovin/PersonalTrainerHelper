@@ -27,10 +27,9 @@ export class ClientCreateComponent implements OnInit {
   }
 
   public save() {
-    console.log(this.user);
     this._clientService.addClient(this.user).subscribe(res => {
       console.log("Done!");
+      this.activeModal.close()
     });
-    //this.activeModal.close()
   }
 }
