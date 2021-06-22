@@ -23,8 +23,6 @@ export class LoginComponent implements OnInit {
     this._authService.singIn(this.email, this.password).subscribe(res => {
       if(res){
         this._authService.setLoggedInUser(res.user);
-        let test = this._authService.getCurrentUser();
-        console.log(test);
         this._router.navigate(['home']);
       }
     });

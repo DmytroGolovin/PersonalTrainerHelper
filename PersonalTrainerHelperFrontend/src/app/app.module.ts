@@ -7,6 +7,8 @@ import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
+import {MatStepperModule} from '@angular/material/stepper';
+
 // 1. Import the libs you need
 import { AngularFireModule } from '@angular/fire';
 // import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -19,6 +21,8 @@ import { LoaderInterceptor } from './shared/services/interceptors/loader.interce
 import { Constants } from './shared/services/constants';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -31,8 +35,11 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     SharedModule,
     NgbModule,
+    MatStepperModule,
+    MatIconModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule, // auth
+    AngularFireAuthModule,
+    BrowserAnimationsModule, // auth
     // AngularFirestoreModule, // firestore
     // AngularFireStorageModule // storage
   ],

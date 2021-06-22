@@ -1,0 +1,43 @@
+<form #generalDataForm="ngForm" (ngSubmit)="nextStep()">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 mt-3">
+            <label for="fname" class="primary-color bold">First Name</label>
+            <input type="text"
+                name="fname" 
+                #fnameField="ngModel"
+                [class.is-invalid]="fnameField.invalid && generalDataForm.submitted" 
+                [(ngModel)]="user.firstName" 
+                class="form-control border rounded-0" 
+                required>
+        </div>
+    
+        <div class="col-xs-12 col-lg-12 mt-3">
+            <label for="lname" class="primary-color bold">Last Name</label>
+            <input type="text"
+                name="lname" 
+                #lnameField="ngModel"
+                [class.is-invalid]="lnameField.invalid && generalDataForm.submitted" 
+                [(ngModel)]="user.lastName" 
+                class="form-control border rounded-0" 
+                required>
+        </div>
+    
+        <div class="col-xs-12 col-lg-12 mt-3">
+            <label for="email" class="primary-color bold">Email</label>
+            <input type="email"
+                name="email" 
+                #emailField="ngModel"
+                [class.is-invalid]="emailField.invalid && generalDataForm.submitted" 
+                [(ngModel)]="user.email" 
+                class="form-control border rounded-0" 
+                required>
+        </div>
+    </div>
+    
+
+    <div class="d-flex justify-content-end mt-5">
+        <button type="submit" class="button main-button">
+            NEXT
+        </button>
+    </div>
+</form>

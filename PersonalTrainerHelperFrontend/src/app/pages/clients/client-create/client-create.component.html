@@ -1,0 +1,25 @@
+<div class="card" style="overflow-y: auto;">
+    <div class="card-large-body px-3 py-3">
+        <div class="modal-header border-0 px-5">
+            <h2 class="title">
+                New Client
+            </h2>
+            <a class="cursor-pointer float-right title" (click)="activeModal.close()">
+                <i class="fas fa-times fa-2x"></i>
+            </a>           
+        </div>
+        <div class="modal-body">
+            <mat-horizontal-stepper linear #stepper>
+                <mat-step completed="false" label="General Data">
+                    <app-step1-general-data [user]="user" (nextStepEmitter)="nextClicked($event)"></app-step1-general-data>                    
+                </mat-step>
+                <mat-step completed="false" label="Goals">
+                    <app-step2-goals [user]="user" (nextStepEmitter)="nextClicked($event)" (previousStepEmitter)="stepper.previous()"></app-step2-goals> 
+                </mat-step>
+                <mat-step completed="false" label="Summary">
+                    <app-step3-summary [user]="user" (saveEmitter)="save()" (previousStepEmitter)="stepper.previous()"></app-step3-summary> 
+                </mat-step>
+            </mat-horizontal-stepper>
+        </div>        
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<form #goalsForm="ngForm" (ngSubmit)="nextStep()">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 mt-3">
+            <label for="goals" class="primary-color bold">Goals</label>
+            <textarea rows="5" 
+                name="goals" 
+                [(ngModel)]="user.goals" 
+                #goalsField="ngModel"
+                [class.is-invalid]="goalsField.invalid && goalsForm.submitted" 
+                class="form-control border rounded-0"
+                required>
+            </textarea>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end mt-5">
+        <div class="pr-2">
+            <button type="button" (click)="previousStep()" class="button secondary-button">
+                BACK
+            </button>
+        </div>
+
+        <div class="pl-2">
+            <button type="submit" class="button main-button">
+                NEXT
+            </button>
+        </div>
+    </div>
+</form>

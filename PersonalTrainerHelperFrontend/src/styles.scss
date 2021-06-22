@@ -9,6 +9,9 @@
     font-family: 'Open Sans';
 }
 
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 body{
     color: black;
     margin: 0;
@@ -27,6 +30,10 @@ body::-webkit-scrollbar-thumb{
     background: $ic-color;
 }
 
+.cursor-pointer{
+    cursor: pointer;
+}
+
 .title{
     color: $main-color;
 }
@@ -40,11 +47,22 @@ body::-webkit-scrollbar-thumb{
 }
 
 .secondary-button{
-    background-color: $ic-color-secondary;
-    color: white;
+    background-color: $secondary-color;
+    color: $main-color;
 }
 
 .main-button{
-    background-color: $ic-color;
+    background-color: $main-color;
     color: white;
 }
+
+.custom-select.is-invalid,
+.form-control.is-invalid,
+.select-filter.is-invalid > .ng-select-container,
+.was-validated .custom-select:invalid,
+.was-validated .form-control:invalid,
+.quiz-button.is-invalid,
+.select-filter:invalid > .ng-select-container {
+  border-color: #cc1d1d !important;
+}
+
