@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { User } from 'src/app/shared/models/user.model';
+import { Client } from 'src/app/shared/models/entities/client.model';
 import { ClientService } from 'src/app/shared/services/api-consumers/client.service';
+import { AuthService } from 'src/app/shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-client-create',
@@ -12,14 +13,15 @@ import { ClientService } from 'src/app/shared/services/api-consumers/client.serv
 export class ClientCreateComponent implements OnInit {
   @ViewChild('stepper') stepper: MatStepper;
 
-  public user: User = new User();
+  public client: Client = new Client();
   constructor(public activeModal: NgbActiveModal,
-    private _clientService: ClientService) { }
+              private _authService: AuthService,
+              private _clientService: ClientService) { }
 
   ngOnInit(): void {
   }
 
-  public nextClicked(event) {
+  public nextClicked() {
     // complete the current step
     this.stepper.selected.completed = true;
     // move to next step
@@ -27,9 +29,10 @@ export class ClientCreateComponent implements OnInit {
   }
 
   public save() {
-    this._clientService.addClient(this.user).subscribe(res => {
-      console.log("Done!");
-      this.activeModal.close()
+    let currentUser = this._authService.getCurrentUser();
+    this.client.personalTrainerId = currentUser.uid;
+    this._clientService.addClient(this.client).subscribe(res => {
+      this.activeModal.close();
     });
   }
 }

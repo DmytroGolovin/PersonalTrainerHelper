@@ -1,4 +1,4 @@
-@import "src/assets/scss/variables.scss";
+@import "../../../../assets/scss/variables.scss";
 
 .overlay {
   opacity: 0.8;
@@ -8,12 +8,12 @@
   height: 100%;
   top: 0px;
   left: 0px;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .custom-spinner {
   margin-top: 20%;
-  color: $bg-primary;
+  color: $main-color;
   width: 15rem;
   height: 15rem;
 }

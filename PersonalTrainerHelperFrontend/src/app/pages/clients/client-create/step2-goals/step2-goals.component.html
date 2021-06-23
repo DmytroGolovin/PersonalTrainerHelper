@@ -4,7 +4,7 @@
             <label for="goals" class="primary-color bold">Goals</label>
             <textarea rows="5" 
                 name="goals" 
-                [(ngModel)]="user.goals" 
+                [(ngModel)]="client.goals" 
                 #goalsField="ngModel"
                 [class.is-invalid]="goalsField.invalid && goalsForm.submitted" 
                 class="form-control border rounded-0"

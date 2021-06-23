@@ -2,8 +2,9 @@
     <app-side-nav-bar></app-side-nav-bar>
 </header>
 
+<app-spinner></app-spinner>
+
 <div class="content-container" [ngClass]="{'content-container': !isLogin}">
-    <app-spinner></app-spinner>
     <router-outlet (activate)="onActivate($event)"></router-outlet>
 </div>
 

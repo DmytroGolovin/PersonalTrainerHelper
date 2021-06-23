@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { User } from 'src/app/shared/models/user.model';
+import { Client } from 'src/app/shared/models/entities/client.model';
 
 @Component({
   selector: 'app-step3-summary',
@@ -7,7 +7,7 @@ import { User } from 'src/app/shared/models/user.model';
   styleUrls: ['./step3-summary.component.scss']
 })
 export class Step3SummaryComponent implements OnInit {
-  @Input() public user: User;
+  @Input() public client: Client;
   @Output() saveEmitter: EventEmitter<any> = new EventEmitter();
   @Output() previousStepEmitter: EventEmitter<any> = new EventEmitter();
 

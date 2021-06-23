@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from 'src/app/shared/models/user.model';
+import { Client } from 'src/app/shared/models/entities/client.model';
 
 @Component({
   selector: 'app-step2-goals',
@@ -8,7 +8,7 @@ import { User } from 'src/app/shared/models/user.model';
   styleUrls: ['./step2-goals.component.scss']
 })
 export class Step2GoalsComponent implements OnInit {
-  @Input() public user: User;
+  @Input() public client: Client;
   @Output() nextStepEmitter: EventEmitter<any> = new EventEmitter();
   @Output() previousStepEmitter: EventEmitter<any> = new EventEmitter();
 
@@ -21,7 +21,7 @@ export class Step2GoalsComponent implements OnInit {
 
   public nextStep(){
     if(this.goalsForm.valid){
-      this.nextStepEmitter.emit(true);
+      this.nextStepEmitter.emit();
     }
   }
 

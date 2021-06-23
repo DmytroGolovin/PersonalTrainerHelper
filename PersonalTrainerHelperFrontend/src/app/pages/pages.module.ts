@@ -19,7 +19,11 @@ import { Step3SummaryComponent } from './clients/client-create/step3-summary/ste
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatIconModule } from '@angular/material/icon';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-
+import { ClientsResolver } from '../shared/resolvers/clients-resolver';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -40,10 +44,15 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
     FormsModule,
     NgbModule,
     MatStepperModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatFormFieldModule
   ],
   providers: [
     AuthGuard,
+    ClientsResolver,
     {
       provide: STEPPER_GLOBAL_OPTIONS,
       useValue: { displayDefaultIndicatorType: false }

@@ -6,7 +6,7 @@
                 name="fname" 
                 #fnameField="ngModel"
                 [class.is-invalid]="fnameField.invalid && generalDataForm.submitted" 
-                [(ngModel)]="user.firstName" 
+                [(ngModel)]="client.firstName" 
                 class="form-control border rounded-0" 
                 required>
         </div>
@@ -17,7 +17,7 @@
                 name="lname" 
                 #lnameField="ngModel"
                 [class.is-invalid]="lnameField.invalid && generalDataForm.submitted" 
-                [(ngModel)]="user.lastName" 
+                [(ngModel)]="client.lastName" 
                 class="form-control border rounded-0" 
                 required>
         </div>
@@ -28,7 +28,7 @@
                 name="email" 
                 #emailField="ngModel"
                 [class.is-invalid]="emailField.invalid && generalDataForm.submitted" 
-                [(ngModel)]="user.email" 
+                [(ngModel)]="client.email" 
                 class="form-control border rounded-0" 
                 required>
         </div>

@@ -5,7 +5,7 @@ import { Injectable } from "@angular/core";
 export class Constants {
   public api = {
     home: 'api',
-    products: {
+    clients: {
       root: 'clients',
       getWithFilters: 'clients/getWithFilters',
       getByKey: 'clients'
