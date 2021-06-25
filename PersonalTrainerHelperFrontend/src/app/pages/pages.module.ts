@@ -24,6 +24,24 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ClientDetailsComponent } from './clients/client-details/client-details.component';
+import { ChartjsModule } from '@ctrl/ngx-chartjs';
+
+import { BarController, BarElement, Chart, Title, Tooltip, Legend, CategoryScale, LinearScale, LineController, PointElement, LineElement, DoughnutController, ArcElement, PieController } from 'chart.js';
+import { ExerciseCreateComponent } from './exercises/exercise-create/exercise-create.component';
+import { ExerciseDetailsComponent } from './exercises/exercise-details/exercise-details.component';
+import { ExercisesResolver } from '../shared/resolvers/exercises-resolver';
+Chart.register(
+  BarController, 
+  BarElement, 
+  CategoryScale, 
+  LineController, 
+  LineElement, 
+  PointElement, 
+  LinearScale,
+  PieController,
+  ArcElement,
+  Title, Tooltip, Legend);
 
 @NgModule({
   declarations: [
@@ -36,7 +54,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ClientCreateComponent, 
     Step1GeneralDataComponent, 
     Step2GoalsComponent, 
-    Step3SummaryComponent],
+    Step3SummaryComponent, 
+    ClientDetailsComponent, ExerciseCreateComponent, ExerciseDetailsComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -48,11 +67,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatPaginatorModule,
     MatTableModule,
     MatSortModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ChartjsModule
   ],
   providers: [
     AuthGuard,
     ClientsResolver,
+    ExercisesResolver,
     {
       provide: STEPPER_GLOBAL_OPTIONS,
       useValue: { displayDefaultIndicatorType: false }

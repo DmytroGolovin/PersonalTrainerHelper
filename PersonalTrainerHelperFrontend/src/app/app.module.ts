@@ -21,8 +21,10 @@ import { LoaderInterceptor } from './shared/services/interceptors/loader.interce
 import { Constants } from './shared/services/constants';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartjsModule } from '@ctrl/ngx-chartjs';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -37,9 +39,11 @@ import { MatIconModule } from '@angular/material/icon';
     NgbModule,
     MatStepperModule,
     MatIconModule,
+    ChartjsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
-    BrowserAnimationsModule, // auth
+    AngularFireAuthModule, // auth
     // AngularFirestoreModule, // firestore
     // AngularFireStorageModule // storage
   ],

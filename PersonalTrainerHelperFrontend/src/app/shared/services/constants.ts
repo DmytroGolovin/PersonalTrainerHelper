@@ -1,4 +1,3 @@
-
 import { Injectable } from "@angular/core";
 
 @Injectable()
@@ -11,4 +10,12 @@ export class Constants {
       getByKey: 'clients'
     }
   }
+
+  public commonConfigs = {
+    pageSize: 10,
+    pageSizeOptions: [5, 10, 25, 50]
+  };
+
+  // Configs for datepickers
+  public dateTimeFormat = "dd.MM.yyyy";
 }

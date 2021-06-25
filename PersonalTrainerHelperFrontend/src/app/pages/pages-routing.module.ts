@@ -9,6 +9,7 @@ import { ExercisesComponent } from './exercises/exercises.component';
 
 import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { ClientsResolver } from '../shared/resolvers/clients-resolver';
+import { ExercisesResolver } from '../shared/resolvers/exercises-resolver';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -53,7 +54,10 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard],
     data: {
       authGuardPipe: redirectUnauthorizedToLogin
-    }
+    },
+    resolve: {
+      exercises: ExercisesResolver
+    },
   },
   {
     path: 'messages',

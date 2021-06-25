@@ -15,11 +15,6 @@ export class SideNavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public currentPage: string = null;
-  public changePage(page: string){
-    this.currentPage = page;
-  }
-
   public signOut (){
     this._authService.singOut().subscribe(res => {
       this._router.navigate(['login']);

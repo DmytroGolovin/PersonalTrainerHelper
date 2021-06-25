@@ -1,42 +1,42 @@
 <nav class="custom-navbar p-0">
     <ul class="custom-navbar-nav w-100">
         <li class="logo">
-            <a class="custom-nav-link" (click) = "changePage('Dashboard')">
+            <a class="custom-nav-link" routerLink="/home">
                 <span class="link-text">PersonalTrainer</span>
                 <i class="fas fa-angle-double-right fa-2x"></i>
             </a>
         </li>
   
-        <li class="custom-nav-item" (click) = "changePage('Home')">
-            <a class="custom-nav-link" [ngClass]="{'active':currentPage==='Home'|| !currentPage}" routerLink="/home">
+        <li class="custom-nav-item">
+            <a class="custom-nav-link" routerLinkActive="active" routerLink="/home">
                 <i class="fas fa-home fa-2x"></i>
                 <span class="link-text">HOME</span>
             </a>
         </li>
   
-        <li class="custom-nav-item" (click) = "changePage('Clients')">
-            <a class="custom-nav-link" [ngClass]="{'active':currentPage==='Clients'}" routerLink="/clients">
+        <li class="custom-nav-item">
+            <a class="custom-nav-link" routerLinkActive="active" routerLink="/clients">
                 <i class="fas fa-users fa-2x"></i>
                 <span class="link-text">CLIENTS</span>
             </a>
         </li>
 
-        <li class="custom-nav-item" (click) = "changePage('Plans')">
-            <a class="custom-nav-link" [ngClass]="{'active':currentPage==='Plans'}" routerLink="/plans">
+        <li class="custom-nav-item">
+            <a class="custom-nav-link" routerLinkActive="active" routerLink="/plans">
                 <i class="fas fa-calendar fa-2x"></i>
                 <span class="link-text">PLANS</span>
             </a>
         </li>
   
-        <li class="custom-nav-item" (click) = "changePage('Exercises')">
-            <a class="custom-nav-link" [ngClass]="{'active':currentPage==='Exercises'}" routerLink="/exercises">
+        <li class="custom-nav-item">
+            <a class="custom-nav-link" routerLinkActive="active" routerLink="/exercises">
                 <i class="fas fa-dumbbell fa-2x"></i>
                 <span class="link-text">EXERCISES</span>
             </a>
         </li>
   
-        <li class="custom-nav-item" (click) = "changePage('Mail')">
-            <a class="custom-nav-link" [ngClass]="{'active':currentPage==='Mail'}" routerLink="/messages">
+        <li class="custom-nav-item">
+            <a class="custom-nav-link" routerLinkActive="active" routerLink="/messages">
                 <i class="fa fa-envelope fa-2x"></i>
                 <span class="link-text">MESSAGES</span>
             </a>

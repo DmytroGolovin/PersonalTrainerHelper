@@ -1,8 +1,10 @@
 export class Client{
-    firstName?: string;
-    lastName?: string;
+    id: number;
     email: string;
     personalTrainerId: string;
+
+    firstName?: string;
+    lastName?: string;
     
     photoURL?: string;
     phoneNumber?: string;

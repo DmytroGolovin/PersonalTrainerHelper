@@ -5,11 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { RouterModule } from '@angular/router';
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 
 
 
 @NgModule({
-  declarations: [SideNavBarComponent, SpinnerComponent],
+  declarations: [SideNavBarComponent, SpinnerComponent, ConfirmationModalComponent],
   imports: [
     CommonModule,
     RouterModule

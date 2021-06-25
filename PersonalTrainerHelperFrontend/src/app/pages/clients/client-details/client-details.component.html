@@ -1,0 +1,56 @@
+<div class="card" style="overflow-y: auto;">
+    <div class="card-large-body px-3 py-3">
+        <div class="modal-header border-0 px-5">
+            <h2 class="title">
+                {{ client.firstName + ' ' + client.lastName }}
+            </h2>
+            <a class="cursor-pointer float-right title" (click)="activeModal.close()">
+                <i class="fas fa-times fa-2x"></i>
+            </a>           
+        </div>
+        <div class="modal-body">
+            <div class="px-5">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="title">Goals</h3>
+                        <p>{{ client.goals }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6">
+                        <h3 class="title">Weight Progression</h3>
+                        <ngx-chartjs 
+                            type="line" 
+                            [data]="data" 
+                            [options]="options">
+                        </ngx-chartjs>
+                    </div>
+                    <div class="col-sm-12 col-lg-6">
+                        <h3 class="title">Diet</h3>
+                        <ngx-chartjs
+                            type="pie" 
+                            [data]="pieChartData" 
+                            [options]="pieChartOptions">
+                        </ngx-chartjs>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end mt-5">
+                <div class="pr-2">
+                    <button type="button" (click)="confirmDelete()" class="button secondary-button">
+                        DELETE
+                    </button>
+                </div>
+        
+                <div class="pl-2">
+                    <button type="button" (click)="updateClient()" class="button main-button">
+                        EDIT
+                    </button>
+                </div>
+            </div>
+            
+        </div>        
+    </div>
+</div>

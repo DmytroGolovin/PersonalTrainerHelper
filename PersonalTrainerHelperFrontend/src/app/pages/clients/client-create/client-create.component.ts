@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 import { Client } from 'src/app/shared/models/entities/client.model';
 import { ClientService } from 'src/app/shared/services/api-consumers/client.service';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
@@ -12,13 +13,15 @@ import { AuthService } from 'src/app/shared/services/auth/auth.service';
 })
 export class ClientCreateComponent implements OnInit {
   @ViewChild('stepper') stepper: MatStepper;
+  @Input() personalTrainerId: string;
 
   public client: Client = new Client();
   constructor(public activeModal: NgbActiveModal,
-              private _authService: AuthService,
+              private _toasterService: ToastrService,
               private _clientService: ClientService) { }
 
   ngOnInit(): void {
+    this.client.personalTrainerId = this.personalTrainerId;
   }
 
   public nextClicked() {
@@ -29,9 +32,9 @@ export class ClientCreateComponent implements OnInit {
   }
 
   public save() {
-    let currentUser = this._authService.getCurrentUser();
-    this.client.personalTrainerId = currentUser.uid;
-    this._clientService.addClient(this.client).subscribe(res => {
+    this._clientService.add(this.client).subscribe(res => {
+      console.log(res);
+      this._toasterService.success("Client created successfully!");
       this.activeModal.close();
     });
   }

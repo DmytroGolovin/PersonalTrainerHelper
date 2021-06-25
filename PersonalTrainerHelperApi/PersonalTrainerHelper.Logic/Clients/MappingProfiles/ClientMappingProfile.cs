@@ -13,7 +13,7 @@ namespace PersonalTrainerHelper.Logic.Clients.MappingProfiles
         {
             CreateMap<CreateClientCommand, Client>();
             CreateMap<UpdateClientCommand, Client>();
-            CreateMap<GetAllClientsQuery, ClientsSearchModel>();
+            CreateMap<GetClientsWithFiltersQuery, ClientsSearchModel>();
             CreateMap<Client, ClientDto>();
         }
     }

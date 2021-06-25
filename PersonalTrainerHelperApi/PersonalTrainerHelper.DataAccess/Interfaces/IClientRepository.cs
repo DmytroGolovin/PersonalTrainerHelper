@@ -7,6 +7,6 @@ namespace PersonalTrainerHelper.DataAccess.Interfaces
 {
     public interface IClientRepository: IGenericRepository<Client>
     {
-        Task<PaginatedResponse<Client>> GetAll(ClientsSearchModel searchModel);
+        Task<PaginatedResponse<Client>> GetWithFilters(ClientsSearchModel searchModel);
     }
 }

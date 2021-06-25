@@ -23,12 +23,12 @@ namespace PersonalTrainerHelperApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<PaginatedResponse<ClientDto>>> GetWithSearchModel([FromQuery] GetAllClientsQuery query)
+        public async Task<ActionResult<PaginatedResponse<ClientDto>>> GetWithSearchModel([FromQuery] GetClientsWithFiltersQuery query)
         {
             return await Mediator.Send(query);
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<ClientDto>> Get(int id)
         {
             return await Mediator.Send(new GetClientByIdQuery{ Id = id });
@@ -47,9 +47,9 @@ namespace PersonalTrainerHelperApi.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<int>> Delete(int id)
+        public async Task<ActionResult<int>> Delete(DeleteClientCommand command)
         {
-            return await Mediator.Send(new DeleteClientCommand { Id = id });
+            return await Mediator.Send(command);
         }
     }
 }
