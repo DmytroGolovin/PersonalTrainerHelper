@@ -1,1 +1,29 @@
 <p>exercise-details works!</p>
+<div class="card" style="overflow-y: auto;">
+    <div class="card-large-body px-3 py-3">
+        <div class="modal-header border-0 px-5">
+            <h2 class="title">
+                {{ exercise.title }}
+            </h2>
+            <a class="cursor-pointer float-right title" (click)="activeModal.close()">
+                <i class="fas fa-times fa-2x"></i>
+            </a>           
+        </div>
+        <div class="modal-body">
+            <div class="d-flex justify-content-end mt-5">
+                <div class="pr-2">
+                    <button type="button" (click)="confirmDelete()" class="button secondary-button">
+                        DELETE
+                    </button>
+                </div>
+        
+                <div class="pl-2">
+                    <button type="button" (click)="updateClient()" class="button main-button">
+                        EDIT
+                    </button>
+                </div>
+            </div>
+            
+        </div>        
+    </div>
+</div>

@@ -7,5 +7,6 @@ namespace PersonalTrainerHelper.DataAccess.Interfaces
     public interface IUnitOfWork
     {
         IClientRepository Clients { get; }
+        IExerciseRepository Exercises { get; }
     }
 }

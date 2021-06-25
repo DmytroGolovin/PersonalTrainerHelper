@@ -5,9 +5,10 @@ export class Constants {
   public api = {
     home: 'api',
     clients: {
-      root: 'clients',
-      getWithFilters: 'clients/getWithFilters',
-      getByKey: 'clients'
+      root: 'clients'
+    },
+    exercises: {
+      root: 'exercises',
     }
   }
 

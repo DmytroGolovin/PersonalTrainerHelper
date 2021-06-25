@@ -6,18 +6,23 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { RouterModule } from '@angular/router';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
-
+import { DragDropDirective } from './directives/drag-n-drop.directive';
 
 
 @NgModule({
-  declarations: [SideNavBarComponent, SpinnerComponent, ConfirmationModalComponent],
+  declarations: [
+    SideNavBarComponent, 
+    SpinnerComponent, 
+    ConfirmationModalComponent,
+    DragDropDirective],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [
     SideNavBarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DragDropDirective
   ]
 })
 export class SharedModule { }

@@ -9,6 +9,7 @@ namespace PersonalTrainerHelper.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddTransient<IExerciseRepository, ExerciseRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             return services;
         }

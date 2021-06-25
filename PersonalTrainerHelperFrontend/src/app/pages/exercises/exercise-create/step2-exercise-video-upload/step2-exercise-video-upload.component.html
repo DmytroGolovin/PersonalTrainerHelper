@@ -1,0 +1,81 @@
+<form #videoForm="ngForm" (ngSubmit)="nextStep()">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 mt-3" *ngIf="!exercise.videoFile">                    
+            <label for="videoUrl" class="bold">Video URL</label>
+            <input type="text"
+                class="form-control border rounded-0" 
+                name="videoUrl" 
+                #videoUrlField="ngModel"
+                [class.is-invalid]="videoUrlField.invalid && videoForm.submitted" 
+                [(ngModel)]="exercise.videoURL" 
+                required>           
+        </div>
+
+        <div class="col-xs-12 col-lg-12 mt-3" *ngIf="!exercise.videoFile && !exercise.videoURL"> 
+            <label for="videoUrl" class="bold">OR</label>
+        </div>
+        
+        <div class="col-xs-12 col-lg-12 mt-3" *ngIf="!exercise.videoFile && !exercise.videoURL">                    
+            <label for="videoUpload" class="bold">Video Upload</label>
+            <div class="file-drop d-flex justify-content-center" appDragDrop (onFileDropped)="onSelectFile($event)">
+                <div class="align-self-center">
+                    <!-- <input type="file" (change)="uploadFile($event.target.files)"> -->
+                    <input type='file' name="videoUpload" hidden #fileInput accept="video/*" (change)="onSelectFile($event.target.files)" />
+                    <h3>Drag and drop file here</h3>
+                    <h3>or</h3>
+                    <button (click)="fileInput.click()"
+                    class="button main-button" type="button">
+                        BROWSE
+                    </button>
+                </div>
+            </div>            
+        </div>
+
+        <div class="col-xs-12 col-lg-12 mt-3" *ngIf="exercise.videoFile">
+            <div class="d-flex justify-content-between">
+                <label for="videoUpload" class="bold align-self-center">Video Preview</label>
+
+                <div class="d-flex justify-content-end">
+                    <div class="pr-2">
+                        <button type="button" (click)="removeAttachment()" class="button secondary-button">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+            
+                    <div class="pl-2">
+                        <button (click)="fileInput.click()" class="button main-button" type="button">
+                            BROWSE
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="video pt-3">
+                <input type='file' name="videoPreview" hidden #fileInput accept="video/*" (change)="onSelectFile($event.target.files)" />
+                <video [src]="exercise.videoSource" width="100%" controls></video>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12 mt-3" *ngIf="exercise.videoURL">
+            <label for="videoPreview" class="bold">Video Preview</label>
+            <div class="video pt-3">
+                <video [src]="exercise.videoURL" width="100%" controls></video>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-end mt-5">
+        <div class="pr-2">
+            <button type="button" (click)="previousStep()" class="button secondary-button">
+                BACK
+            </button>
+        </div>
+
+        <div class="pl-2">
+            <button type="submit" class="button main-button">
+                NEXT
+            </button>
+        </div>
+    </div>
+</form>

@@ -29,8 +29,4 @@ export class ClientService {
   public delete(client: Client): Observable<any> {
     return this._baseService.delete<Client>(this.constants.api.clients.root, client);
   }
-
-  // public getByKey(key: string): Observable<Product> {
-  //   return this._baseService.get<Product>(this.constants.api.products.getByKey + key);
-  // }
 }

@@ -1,0 +1,25 @@
+<div class="">
+    <label for="title" class="bold">Title</label>
+    <p>{{exercise.title}}</p>
+
+    <div class="video py-2">
+        <video [src]="exercise.videoURL ? exercise.videoURL : exercise.videoSource" width="100%" controls></video>
+    </div>
+
+    <label for="description" class="bold">Description</label>
+    <p>{{exercise.title}}</p>
+
+    <div class="d-flex justify-content-end mt-5">
+        <div class="pr-2">
+            <button type="button" (click)="previousStep()" class="button secondary-button">
+                BACK
+            </button>
+        </div>
+
+        <div class="pl-2">
+            <button type="button" (click)="save()" class="button main-button">
+                SAVE
+            </button>
+        </div>
+    </div>
+</div>

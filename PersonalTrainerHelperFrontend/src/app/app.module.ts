@@ -12,7 +12,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 // 1. Import the libs you need
 import { AngularFireModule } from '@angular/fire';
 // import { AngularFirestoreModule } from '@angular/fire/firestore';
-// import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BaseService } from './shared/services/base.service';
 import { LoaderService } from './shared/services/utils/loader.service';
@@ -45,7 +45,7 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule, // auth
     // AngularFirestoreModule, // firestore
-    // AngularFireStorageModule // storage
+    AngularFireStorageModule // storage
   ],
   exports: [RouterModule],
   providers: [

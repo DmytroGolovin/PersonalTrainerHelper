@@ -1,0 +1,33 @@
+<form #generalDataForm="ngForm" (ngSubmit)="nextStep()">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 mt-3">
+            <label for="title" class="bold">Title</label>
+            <input type="text"
+                class="form-control border rounded-0" 
+                name="title" 
+                #titleField="ngModel"
+                [class.is-invalid]="titleField.invalid && generalDataForm.submitted" 
+                [(ngModel)]="exercise.title" 
+                required>
+        </div>
+    
+        <div class="col-xs-12 col-lg-12 mt-3">
+            <label for="description" class="bold">Description</label>
+            <textarea rows="5" 
+                class="form-control border rounded-0"
+                name="description" 
+                #descriptionField="ngModel"
+                [class.is-invalid]="descriptionField.invalid && generalDataForm.submitted" 
+                [(ngModel)]="exercise.description" 
+                required>
+            </textarea>
+        </div>
+    </div>
+    
+
+    <div class="d-flex justify-content-end mt-5">
+        <button type="submit" class="button main-button">
+            NEXT
+        </button>
+    </div>
+</form>

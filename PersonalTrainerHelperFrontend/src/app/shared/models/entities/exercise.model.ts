@@ -4,5 +4,8 @@ export class Exercise{
 
     title?: string;
     description?: string;
-    videoUrl?: string;
+    videoURL?: string;
+
+    videoFile: any;
+    videoSource: any;
 }

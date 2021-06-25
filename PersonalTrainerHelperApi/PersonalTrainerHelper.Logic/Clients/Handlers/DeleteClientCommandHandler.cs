@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace PersonalTrainerHelper.Logic.Clients.Handlers
 {
-
     public class DeleteClientCommandHandler : IRequestHandler<DeleteClientCommand, int>
     {
         private readonly IUnitOfWork _unitOfWork;

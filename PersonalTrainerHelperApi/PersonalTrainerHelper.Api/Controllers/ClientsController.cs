@@ -5,7 +5,6 @@ using PersonalTrainerHelper.Core.Responses;
 using PersonalTrainerHelper.Logic.Clients.Commands;
 using PersonalTrainerHelper.Logic.Clients.Dto;
 using PersonalTrainerHelper.Logic.Clients.Queries;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PersonalTrainerHelperApi.Controllers

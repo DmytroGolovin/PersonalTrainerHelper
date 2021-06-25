@@ -1,1 +1,25 @@
-<p>exercise-create works!</p>
+<div class="card" style="overflow-y: auto;">
+    <div class="card-large-body px-3 py-3">
+        <div class="modal-header border-0 px-5">
+            <h2 class="title">
+                {{ 'New Exercise' | uppercase }}
+            </h2>
+            <a class="cursor-pointer float-right title" (click)="activeModal.close()">
+                <i class="fas fa-times fa-2x"></i>
+            </a>           
+        </div>
+        <div class="modal-body">
+            <mat-horizontal-stepper linear #stepper>
+                <mat-step completed="false" label="General Data">
+                    <app-step1-exercise-general-data [exercise]="exercise" (nextStepEmitter)="nextClicked()"></app-step1-exercise-general-data>        
+                </mat-step>
+                <mat-step completed="false" label="Video">
+                    <app-step2-exercise-video-upload [exercise]="exercise" (nextStepEmitter)="nextClicked()" (previousStepEmitter)="stepper.previous()"></app-step2-exercise-video-upload> 
+                </mat-step>
+                <mat-step completed="false" label="Summary">
+                    <app-step3-exercise-summary [exercise]="exercise" (saveEmitter)="save()" (previousStepEmitter)="stepper.previous()"></app-step3-exercise-summary> 
+                </mat-step>
+            </mat-horizontal-stepper>
+        </div>        
+    </div>
+</div>
