@@ -4,7 +4,9 @@ export class Exercise{
 
     title?: string;
     description?: string;
-    videoURL?: string;
+
+    videoStorageId?: string;
+    videoURL: string;
 
     videoFile: any;
     videoSource: any;

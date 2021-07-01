@@ -8,5 +8,6 @@ namespace PersonalTrainerHelper.Logic.Exercises.Commands
         public string Title { get; set; }
         public string Description { get; set; }
         public string VideoURL { get; set; }
+        public string VideoStorageId { get; set; }
     }
 }

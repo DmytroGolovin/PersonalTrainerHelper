@@ -7,11 +7,13 @@
                 (PersonalTrainerId, 
                 Title, 
                 Description, 
+                VideoStorageId, 
                 VideoURL)
             VALUES 
                 (@PersonalTrainerId, 
                 @Title, 
                 @Description, 
+                @VideoStorageId, 
                 @VideoURL)";
 
         public const string UpdateQuery = @"
@@ -21,6 +23,7 @@
                 Title = @Title,
                 Description = @Description,
                 VideoURL = @VideoURL;
+                VideoStorageId = @VideoStorageId;
             WHERE
                 Id = @Id";
 

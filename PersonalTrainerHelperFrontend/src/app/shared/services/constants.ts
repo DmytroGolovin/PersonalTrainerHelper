@@ -9,6 +9,7 @@ export class Constants {
     },
     exercises: {
       root: 'exercises',
+      storagePath: 'exercises/'
     }
   }
 

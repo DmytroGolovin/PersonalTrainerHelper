@@ -1,33 +1,37 @@
 import { Injectable } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
+import { from, Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { FileUpload } from '../../models/helpers/file-upload.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilesStorageService {
-
-  private basePath = '/uploads';
-
-  constructor(private storage: AngularFireStorage) { }
+  constructor(private _storage: AngularFireStorage) { }
   
-  pushFileToStorage(fileUpload: FileUpload): Observable<number> {
-    const filePath = `${this.basePath}/${fileUpload.file.name}`;
-    const storageRef = this.storage.ref(filePath);
-    const uploadTask = this.storage.upload(filePath, fileUpload.file);
+  public pushFileToStorage(fileUpload: FileUpload, path: string): Observable<string> {
+    const filePath = path;
+    const storageRef = this._storage.ref(filePath);
+    const uploadTask = this._storage.upload(filePath, fileUpload.file);
 
-    uploadTask.snapshotChanges().pipe(
-      finalize(() => {
-        storageRef.getDownloadURL().subscribe(downloadURL => {
-          fileUpload.url = downloadURL;
-          fileUpload.name = fileUpload.file.name;
-          return fileUpload;
-        });
-      })
-    ).subscribe();
-  
-    return uploadTask.percentageChanges();
+    return from(uploadTask).pipe(
+      switchMap((_) => storageRef.getDownloadURL()),
+    );
+  }
+
+  private getDownloadUrl$(
+    uploadTask: AngularFireUploadTask,
+    //path: string,
+    storageRef: AngularFireStorageReference
+  ): Observable<string> {
+    return from(uploadTask).pipe(
+      switchMap((_) => storageRef.getDownloadURL()),
+    );
+  }
+
+  public deleteFileStorage(path: string, name: string): Observable<void> {
+    const storageRef = this._storage.ref(path);
+    return storageRef.child(name).delete();
   }
 }

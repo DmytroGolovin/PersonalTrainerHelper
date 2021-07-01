@@ -26,6 +26,7 @@
     "@ctrl/ngx-chartjs": "^7.0.0",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@ng-bootstrap/ng-bootstrap": "^6.2.0",
+    "angular2-uuid": "^1.1.1",
     "bootstrap": "^4.4.0",
     "chart.js": "^3.3.2",
     "firebase": "^8.6.8",

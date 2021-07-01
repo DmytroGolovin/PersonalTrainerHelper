@@ -33,9 +33,12 @@ export class ClientCreateComponent implements OnInit {
 
   public save() {
     this._clientService.add(this.client).subscribe(res => {
-      console.log(res);
-      this._toasterService.success("Client created successfully!");
-      this.activeModal.close();
+      if(res > 0){
+        this._toasterService.success("Client created successfully!");
+        this.activeModal.close();
+      }else {
+        this._toasterService.error("Something went wrong! Try later or contact support.");
+      }
     });
   }
 }

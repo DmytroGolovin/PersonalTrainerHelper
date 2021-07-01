@@ -1,15 +1,24 @@
-<p>exercise-details works!</p>
 <div class="card" style="overflow-y: auto;">
     <div class="card-large-body px-3 py-3">
-        <div class="modal-header border-0 px-5">
+        <div class="modal-header border-0">
             <h2 class="title">
-                {{ exercise.title }}
+                {{ 'Exercise Details' | uppercase }}
             </h2>
             <a class="cursor-pointer float-right title" (click)="activeModal.close()">
                 <i class="fas fa-times fa-2x"></i>
             </a>           
         </div>
         <div class="modal-body">
+            <label for="title" class="bold">Title</label>
+            <p>{{exercise.title}}</p>
+
+            <div class="video py-2">
+                <video [src]="exercise.videoURL" width="100%" controls></video>
+            </div>
+
+            <label for="description" class="bold">Description</label>
+            <p>{{exercise.description}}</p>
+
             <div class="d-flex justify-content-end mt-5">
                 <div class="pr-2">
                     <button type="button" (click)="confirmDelete()" class="button secondary-button">

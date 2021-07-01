@@ -33,8 +33,12 @@ export class ExerciseService {
     return this._baseService.delete<Exercise>(this.constants.api.exercises.root, exercise);
   }
 
-  public uploadExerciseVideo(video: File): Observable<any> {
+  public uploadExerciseVideo(video: File, personalTrainerId: string, videoId: string): Observable<any> {
     let fileUpload = new FileUpload(video);
-    return this._filesStorageService.pushFileToStorage(fileUpload);
+    return this._filesStorageService.pushFileToStorage(fileUpload, `${personalTrainerId}/${this.constants.api.exercises.storagePath}/${videoId}`);
+  }
+
+  public deleteExerciseVideo(personalTrainerId: string, videoId: string): Observable<void> {
+    return this._filesStorageService.deleteFileStorage(`${personalTrainerId}/${this.constants.api.exercises.storagePath}`, videoId);
   }
 }
