@@ -1,0 +1,25 @@
+<div class="card" style="overflow-y: auto;">
+    <div class="card-large-body px-3 py-3">
+        <div class="modal-header border-0 px-5">
+            <h2 class="title">
+                {{ 'New Workout' | uppercase }}
+            </h2>
+            <a class="cursor-pointer float-right title" (click)="activeModal.close()">
+                <i class="fas fa-times fa-2x"></i>
+            </a>           
+        </div>
+        <div class="modal-body">
+            <mat-horizontal-stepper linear #stepper>
+                <mat-step completed="false" label="General Data">
+                    <app-step1-workout-general-data [workout]="workout" (nextStepEmitter)="nextClicked()"></app-step1-workout-general-data>        
+                </mat-step>
+                <mat-step completed="false" label="Video">
+                    <app-step2-workout-exercises [workout]="workout" (nextStepEmitter)="nextClicked()" (previousStepEmitter)="stepper.previous()"></app-step2-workout-exercises> 
+                </mat-step>
+                <mat-step completed="false" label="Summary">
+                    <app-step3-workout-summary [workout]="workout" (saveEmitter)="save()" (previousStepEmitter)="stepper.previous()"></app-step3-workout-summary> 
+                </mat-step>
+            </mat-horizontal-stepper>
+        </div>        
+    </div>
+</div>
