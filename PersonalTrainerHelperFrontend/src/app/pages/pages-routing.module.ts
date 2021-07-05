@@ -10,6 +10,9 @@ import { ExercisesComponent } from './exercises/exercises.component';
 import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { ClientsResolver } from '../shared/resolvers/clients-resolver';
 import { ExercisesResolver } from '../shared/resolvers/exercises-resolver';
+import { PlansResolver } from '../shared/resolvers/plans-resolver';
+import { WorkoutComponent } from './workout/workout.component';
+import { WorkoutsResolver } from '../shared/resolvers/workouts-resolver';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -41,14 +44,6 @@ const routes: Routes = [
     },
   },
   {
-    path: 'plans',
-    component: PlansComponent,
-    canActivate: [AngularFireAuthGuard],
-    data: {
-      authGuardPipe: redirectUnauthorizedToLogin
-    }
-  },
-  {
     path: 'exercises',
     component: ExercisesComponent,
     canActivate: [AngularFireAuthGuard],
@@ -57,6 +52,28 @@ const routes: Routes = [
     },
     resolve: {
       exercises: ExercisesResolver
+    },
+  },
+  {
+    path: 'workouts',
+    component: WorkoutComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: redirectUnauthorizedToLogin
+    },
+    resolve: {
+      workouts: WorkoutsResolver
+    },
+  },
+  {
+    path: 'plans',
+    component: PlansComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {
+      authGuardPipe: redirectUnauthorizedToLogin
+    },
+    resolve: {
+      plans: PlansResolver
     },
   },
   {

@@ -22,8 +22,8 @@
             SET
                 Title = @Title,
                 Description = @Description,
-                VideoURL = @VideoURL;
-                VideoStorageId = @VideoStorageId;
+                VideoURL = @VideoURL,
+                VideoStorageId = @VideoStorageId
             WHERE
                 Id = @Id";
 

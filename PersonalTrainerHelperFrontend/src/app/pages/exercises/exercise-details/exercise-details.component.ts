@@ -21,7 +21,6 @@ export class ExerciseDetailsComponent implements OnInit {
               private _modalService: NgbModal) { }
 
   ngOnInit(): void {
-    console.log(this.exercise);
   }
 
   public confirmDelete(){

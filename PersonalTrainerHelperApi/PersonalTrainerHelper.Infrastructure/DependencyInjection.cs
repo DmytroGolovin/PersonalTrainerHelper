@@ -10,6 +10,8 @@ namespace PersonalTrainerHelper.Infrastructure
         {
             services.AddTransient<IClientRepository, ClientRepository>();
             services.AddTransient<IExerciseRepository, ExerciseRepository>();
+            services.AddTransient<IWorkoutRepository, WorkoutRepository>();
+            services.AddTransient<IPlanRepository, PlanRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             return services;
         }

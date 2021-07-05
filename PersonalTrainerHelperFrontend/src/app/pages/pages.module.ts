@@ -39,6 +39,19 @@ import { PlansComponent } from './plans/plans.component';
 
 import { ChartjsModule } from '@ctrl/ngx-chartjs';
 import { BarController, BarElement, Chart, Title, Tooltip, Legend, CategoryScale, LinearScale, LineController, PointElement, LineElement, ArcElement, PieController } from 'chart.js';
+import { PlanCreateComponent } from './plans/plan-create/plan-create.component';
+import { PlanDetailsComponent } from './plans/plan-details/plan-details.component';
+import { PlansResolver } from '../shared/resolvers/plans-resolver';
+import { Step1PlanGeneralDataComponent } from './plans/plan-create/step1-plan-general-data/step1-plan-general-data.component';
+import { Step3PlanSummaryComponent } from './plans/plan-create/step3-plan-summary/step3-plan-summary.component';
+import { WorkoutComponent } from './workout/workout.component';
+import { WorkoutCreateComponent } from './workout/workout-create/workout-create.component';
+import { WorkoutDetailsComponent } from './workout/workout-details/workout-details.component';
+import { Step1WorkoutGeneralDataComponent } from './workout/workout-create/step1-workout-general-data/step1-workout-general-data.component';
+import { Step2WorkoutExercisesComponent } from './workout/workout-create/step2-workout-exercises/step2-workout-exercises.component';
+import { Step3WorkoutSummaryComponent } from './workout/workout-create/step3-workout-summary/step3-workout-summary.component';
+import { Step2PlanScheduleComponent } from './plans/plan-create/step2-plan-schedule/step2-plan-schedule.component';
+import { WorkoutsResolver } from '../shared/resolvers/workouts-resolver';
 
 Chart.register(
   BarController, 
@@ -69,7 +82,18 @@ Chart.register(
     ExerciseDetailsComponent, 
     Step1ExerciseGeneralDataComponent, 
     Step3ExerciseSummaryComponent, 
-    Step2ExerciseVideoUploadComponent],
+    Step2ExerciseVideoUploadComponent, 
+    PlanCreateComponent, 
+    PlanDetailsComponent, 
+    Step1PlanGeneralDataComponent, 
+    Step3PlanSummaryComponent, 
+    WorkoutComponent, 
+    WorkoutCreateComponent, 
+    WorkoutDetailsComponent, 
+    Step1WorkoutGeneralDataComponent, 
+    Step2WorkoutExercisesComponent, 
+    Step3WorkoutSummaryComponent, 
+    Step2PlanScheduleComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -88,6 +112,8 @@ Chart.register(
     AuthGuard,
     ClientsResolver,
     ExercisesResolver,
+    PlansResolver,
+    WorkoutsResolver,
     {
       provide: STEPPER_GLOBAL_OPTIONS,
       useValue: { displayDefaultIndicatorType: false }

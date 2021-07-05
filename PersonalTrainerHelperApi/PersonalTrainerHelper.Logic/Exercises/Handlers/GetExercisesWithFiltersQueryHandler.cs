@@ -27,7 +27,6 @@ namespace PersonalTrainerHelper.Logic.Exercises.Handlers
         public async Task<PaginatedResponse<ExerciseDto>> Handle(GetExercisesWithFiltersQuery request, CancellationToken cancellationToken)
         {
             var result = await _unitOfWork.Exercises.GetWithFilters(_mapper.Map<ExerciseSearchModel>(request));
-            //return _mapper.Map<PaginatedResponse<ClientDto>>(result);
 
             return new PaginatedResponse<ExerciseDto>
             {

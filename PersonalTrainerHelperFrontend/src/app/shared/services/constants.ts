@@ -10,6 +10,12 @@ export class Constants {
     exercises: {
       root: 'exercises',
       storagePath: 'exercises/'
+    },
+    plans: {
+      root: 'plans',
+    },
+    workouts: {
+      root: 'workouts',
     }
   }
 

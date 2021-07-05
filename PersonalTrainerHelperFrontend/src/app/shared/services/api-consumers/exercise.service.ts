@@ -21,8 +21,8 @@ export class ExerciseService {
     return this._baseService.get<Exercise>(this.constants.api.exercises.root + '/' + id);
   }
 
-  public add(client: Exercise): Observable<any> {
-    return this._baseService.post<Exercise>(this.constants.api.exercises.root, client);
+  public add(exercise: Exercise): Observable<any> {
+    return this._baseService.post<Exercise>(this.constants.api.exercises.root, exercise);
   }
 
   public getWithFilter(searchModel: ExercisesSearchModel): Observable<PaginatedResponse<Exercise>> {
