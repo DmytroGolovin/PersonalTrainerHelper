@@ -18,6 +18,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 import { ClientsComponent } from './clients/clients.component';
 import { ClientCreateComponent } from './clients/client-create/client-create.component';
@@ -52,6 +53,7 @@ import { Step2WorkoutExercisesComponent } from './workout/workout-create/step2-w
 import { Step3WorkoutSummaryComponent } from './workout/workout-create/step3-workout-summary/step3-workout-summary.component';
 import { Step2PlanScheduleComponent } from './plans/plan-create/step2-plan-schedule/step2-plan-schedule.component';
 import { WorkoutsResolver } from '../shared/resolvers/workouts-resolver';
+import { WorkoutExercicesModalComponent } from './workout/workout-create/step2-workout-exercises/workout-exercices-modal/workout-exercices-modal.component';
 
 Chart.register(
   BarController, 
@@ -93,7 +95,8 @@ Chart.register(
     Step1WorkoutGeneralDataComponent, 
     Step2WorkoutExercisesComponent, 
     Step3WorkoutSummaryComponent, 
-    Step2PlanScheduleComponent],
+    Step2PlanScheduleComponent,
+    WorkoutExercicesModalComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -106,6 +109,7 @@ Chart.register(
     MatTableModule,
     MatSortModule,
     MatFormFieldModule,
+    MatCardModule,
     ChartjsModule
   ],
   providers: [

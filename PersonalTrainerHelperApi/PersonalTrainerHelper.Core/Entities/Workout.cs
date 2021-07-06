@@ -9,6 +9,6 @@ namespace PersonalTrainerHelper.Core.Entities
         public string Title { get; set; }
         public string Description { get; set; }
 
-        public List<Exercise> Exercises { get; set; } = new List<Exercise>();
+        public List<WorkoutExercise> Exercises { get; set; } = new List<WorkoutExercise>();
     }
 }

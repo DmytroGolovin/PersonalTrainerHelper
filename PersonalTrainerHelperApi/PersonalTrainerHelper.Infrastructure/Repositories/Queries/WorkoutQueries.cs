@@ -10,7 +10,26 @@
             VALUES 
                 (@PersonalTrainerId, 
                 @Title, 
-                @Description)";
+                @Description);
+            SELECT SCOPE_IDENTITY();";
+
+        public const string InsertWorkoutExerciseQuery = @"
+            INSERT INTO WorkoutExercises
+                ([WorkoutId], 
+                [ExerciseId], 
+                [Quantity], 
+                [MinRep], 
+                [MaxRep], 
+                [Order], 
+                [Observations])
+            VALUES 
+                (@WorkoutId, 
+                @ExerciseId,  
+                @Quantity, 
+                @MinRep, 
+                @MaxRep, 
+                @Order, 
+                @Observations);";
 
         public const string UpdateQuery = @"
             UPDATE 
@@ -21,6 +40,12 @@
             WHERE
                 Id = @Id";
 
+        public const string DeleteWorkoutExercisesQuery = @"
+            DELETE FROM
+                WorkoutExercises
+            WHERE
+                WorkoutId = @Id;";
+
         public const string DeleteQuery = @"
             DELETE FROM
                 Workouts
@@ -29,11 +54,17 @@
 
         public const string SelectByIdQuery = @"
             SELECT 
-                * 
+                [Workouts].*,
+                [WorkoutExercises].*,
+                [Exercises].*
             FROM 
-                Workouts 
+                [Workouts]
+            LEFT JOIN 
+                [WorkoutExercises] ON [WorkoutExercises].[WorkoutId] = [Workouts].[Id]
+            LEFT JOIN 
+                [Exercises] ON [WorkoutExercises].[ExerciseId] = [Exercises].[Id]
             WHERE 
-                Id = @Id;";
+                [Workouts].[Id] = @Id;";
 
         public const string SelectWithFiltersQuery = @"
             SELECT 

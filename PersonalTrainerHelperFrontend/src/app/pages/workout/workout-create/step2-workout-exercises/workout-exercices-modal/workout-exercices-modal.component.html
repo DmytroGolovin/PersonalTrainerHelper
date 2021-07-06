@@ -1,0 +1,103 @@
+<div class="card" style="overflow-y: auto;">
+    <div class="card-large-body px-3 py-3">
+        <div class="modal-header border-0">
+            <h2 class="title">
+                {{ 'Exercises' | uppercase }}
+            </h2>
+            <a class="cursor-pointer float-right title" (click)="activeModal.close()">
+                <i class="fas fa-times fa-2x"></i>
+            </a>           
+        </div>
+
+        <form class="card-block px-3 mt-3" #searchForm="ngForm" (ngSubmit)="applyFilters()">
+            <div class="row">
+                <div class="col-xs-12 col-lg-7">
+                    <div class="form-group">
+                        <label for="searchExpression">Search</label>
+                        <input type="text" name="searchExpression" class="form-control" placeholder="Search..." [(ngModel)]="searchModel.searchExpression">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-1">
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <div class="d-flex justify-content-end align-items-center h-100">
+                        <div class="pr-2">
+                            <button type="button" (click)="clearFilters()" class="button secondary-button">
+                                CLEAR
+                            </button>
+                        </div>
+                        <div class="pl-2">
+                            <button type="submit" class="button main-button">
+                                SEARCH
+                            </button>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        <div class="mt-3" *ngIf="exercises && exercises.length > 0">
+            <div class="table-responsive">
+                <table class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let exercise of exercises; index as i">
+                        
+                            <td>
+                                {{ exercise.title }}
+                            </td>
+                            <td>
+                                {{ exercise.description }}
+                            </td>
+                            <td class="text-right">
+                                <button *ngIf="!exerciseIsSelected(exercise.id)" type="button" (click)="selectExercise(exercise)" class="button main-button">
+                                    SELECT
+                                </button>
+                                <button *ngIf="exerciseIsSelected(exercise.id)" type="button" (click)="unselectExercise(exercise.id)" class="button main-button">
+                                    UNSELECT
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <mat-paginator [length]="totalItems"
+                [pageSize]="searchModel.pageSize"
+                [pageIndex]="searchModel.pageNumber - 1"
+                (page)="pageEvent($event)"
+                [pageSizeOptions]="pageSizeOptions">
+            </mat-paginator>
+        </div>
+        
+        <div *ngIf="!exercises || exercises.length == 0" class="mt-3 text-center">
+            <h4>No results!</h4>
+        </div>
+
+        <div class="d-flex justify-content-end mt-5">
+            <div class="pr-2">
+                <button type="button" (click)="activeModal.close()" class="button secondary-button">
+                    BACK
+                </button>
+            </div>
+    
+            <div class="pl-2">
+                <button type="button" (click)="save()" class="button main-button">
+                    SAVE
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

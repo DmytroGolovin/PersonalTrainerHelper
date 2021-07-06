@@ -1,1 +1,70 @@
-<p>workout-details works!</p>
+<div class="card" style="overflow-y: auto;">
+    <div class="card-large-body px-3 py-3">
+        <div class="modal-header border-0">
+            <h2 class="title">
+                {{ 'Workout Details' | uppercase }}
+            </h2>
+            <a class="cursor-pointer float-right title" (click)="activeModal.close()">
+                <i class="fas fa-times fa-2x"></i>
+            </a>           
+        </div>
+        <div class="modal-body">
+            <label for="title" class="bold">Title</label>
+            <p>{{workout.title}}</p>
+
+            <label for="description" class="bold">Description</label>
+            <p>{{workout.description}}</p>
+
+            <label for="exercises" class="bold">Exercises</label>
+            <div *ngFor="let workoutExercise of workout.exercises" class="exercise-holder my-3 p-3">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 col-lg-4">
+                        <video [src]="workoutExercise.exercise.videoURL" width="100%" controls></video>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-lg-8">
+                        <label for="title" class="bold">Title</label>
+                        <p>{{workoutExercise.exercise.title}}</p>
+                        <label for="description" class="bold">Description</label>
+                        <p>{{workoutExercise.exercise.description}}</p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-md-4">
+                        <label for="title" class="bold">Quantity</label>
+                        <p>{{workoutExercise.quantity}}</p>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <label for="title" class="bold">Range from</label>
+                        <p>{{workoutExercise.minRep}}</p>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <label for="title" class="bold">Range to</label>
+                        <p>{{workoutExercise.maxRep}}</p>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-md-12">
+                        <label for="title" class="bold">Observations</label>
+                        <p>{{workoutExercise.observations}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end mt-5">
+                <div class="pr-2">
+                    <button type="button" (click)="confirmDelete()" class="button secondary-button">
+                        DELETE
+                    </button>
+                </div>
+        
+                <div class="pl-2">
+                    <button type="button" (click)="updateClient()" class="button main-button">
+                        EDIT
+                    </button>
+                </div>
+            </div>
+            
+        </div>        
+    </div>
+</div>

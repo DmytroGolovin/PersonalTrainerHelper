@@ -1,4 +1,4 @@
-import { Exercise } from "./exercise.model";
+import { WorkoutExercise } from "./workout-exercise.model";
 
 export class Workout{
     id: number;
@@ -7,5 +7,5 @@ export class Workout{
     title?: string;
     description?: string;
 
-    exercises?: Array<Exercise> = [];
+    exercises?: Array<WorkoutExercise> = [];
 }

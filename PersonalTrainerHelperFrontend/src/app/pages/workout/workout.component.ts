@@ -88,10 +88,10 @@ export class WorkoutComponent implements OnInit {
   }
 
   public openDetailsModal(id: number) {
-    this._workoutService.getById(id).subscribe(exercise => {
+    this._workoutService.getById(id).subscribe(workout => {
       const modalRef = this._modalService.open(WorkoutDetailsComponent, { size: 'xl', scrollable: true, backdrop: 'static', keyboard: false });
 
-      modalRef.componentInstance.exercise = exercise;
+      modalRef.componentInstance.workout = workout;
 
       modalRef.result.then(res => {
         this.search();

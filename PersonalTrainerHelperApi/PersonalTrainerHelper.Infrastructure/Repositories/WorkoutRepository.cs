@@ -6,6 +6,7 @@ using PersonalTrainerHelper.Core.SearchModels;
 using PersonalTrainerHelper.DataAccess.Interfaces;
 using PersonalTrainerHelper.Infrastructure.Repositories.Queries;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -36,8 +37,20 @@ namespace PersonalTrainerHelper.Infrastructure.Repositories
                 using (var connection = Connection)
                 {
                     connection.Open();
-                    var affectedRows = await connection.ExecuteAsync(WorkoutQueries.InsertQuery, entity);
-                    return affectedRows;
+                    var workoutId = await connection.QueryFirstOrDefaultAsync<int>(WorkoutQueries.InsertQuery, entity);
+
+                    if (entity.Exercises.Any())
+                    {
+                        int order = 1;
+                        foreach(var exercise in entity.Exercises)
+                        {
+                            exercise.WorkoutId = workoutId;
+                            exercise.Order = order;
+                            var affectedRows = await connection.ExecuteAsync(WorkoutQueries.InsertWorkoutExerciseQuery, exercise);
+                            order++;
+                        }
+                    }
+                    return workoutId;
                 }
             }
             catch (Exception ex)
@@ -54,6 +67,7 @@ namespace PersonalTrainerHelper.Infrastructure.Repositories
                 using (var connection = Connection)
                 {
                     connection.Open();
+                    await connection.ExecuteAsync(WorkoutQueries.DeleteWorkoutExercisesQuery, new { Id = id });
                     var affectedRows = await connection.ExecuteAsync(WorkoutQueries.DeleteQuery, new { Id = id });
                     return affectedRows;
                 }
@@ -71,7 +85,32 @@ namespace PersonalTrainerHelper.Infrastructure.Repositories
                 using (var connection = Connection)
                 {
                     connection.Open();
-                    var result = await connection.QueryAsync<Workout>(WorkoutQueries.SelectByIdQuery, new { Id = id });
+                    var workoutDictionary = new Dictionary<long, Workout>();
+                    var result = await connection.QueryAsync<Workout, WorkoutExercise, Exercise, Workout>(
+                        WorkoutQueries.SelectByIdQuery,
+                        (workout, workoutExercise, exercise) => 
+                        {
+                            Workout workoutEntry;
+
+                            if (!workoutDictionary.TryGetValue(workout.Id, out workoutEntry))
+                            {
+                                workoutEntry = workout;
+                                workoutDictionary.Add(workout.Id, workoutEntry);
+                            }
+
+                            if (workoutExercise != null)
+                            {
+                                if (exercise != null)
+                                {
+                                    workoutExercise.Exercise = exercise;
+                                }
+
+                                workoutEntry.Exercises.Add(workoutExercise);
+                            }
+
+                            return workoutEntry;
+                        }, new { Id = id }, splitOn: "Id");
+
                     return result.FirstOrDefault();
                 }
             }
