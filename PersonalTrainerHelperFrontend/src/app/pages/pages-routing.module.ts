@@ -39,9 +39,9 @@ const routes: Routes = [
     data: {
       authGuardPipe: redirectUnauthorizedToLogin
     },
-    resolve: {
-      clients: ClientsResolver
-    },
+    // resolve: {
+    //   clients: ClientsResolver
+    // },
   },
   {
     path: 'exercises',
